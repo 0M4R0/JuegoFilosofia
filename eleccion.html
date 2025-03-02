@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegir filosofos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container-filosofos">
+        <h1>Elige tu filósofo</h1>
+        <div class="filosofos">
+            <div class="presocraticos">
+                <button value="presocraticos" id="presocraticos-button">Presocráticos</button>
+            </div>
+            <div class="protagoras">
+                <button value="protagoras" id="protagoras-button">Protágoras</button>
+            </div>
+            <div class="gorgias">
+                <button value="gorgias" id="gorgias-button">Gorgias</button>
+            </div>
+            <div class="socrates">
+                <button value="socrates" id="socrates-button">Sócrates</button>
+            </div>
+            <div class="platon">
+                <button value="platon" id="platon-button">Platón</button>
+            </div>
+            <div class="aristoteles">
+                <button value="aristoteles" id="aristoteles-button">Aristóteles</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll("button");
+        buttons.forEach((button) => {
+            button.addEventListener("click", (e) => {
+                const filosofo = e.target.value;
+                localStorage.setItem("filosofo", filosofo);
+                window.location.href = "preguntas.html";
+            });
+        });
+    </script>
+</body>
+
+</html>
