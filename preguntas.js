@@ -389,6 +389,15 @@ function guardarProgreso() {
     localStorage.setItem("respuestas", JSON.stringify(respuestas));
 }
 
+
+// Creadores [NOMBRE, MATRICULA]
+const creadores_juego = [
+    {nombre: "Ronald Omar Rosario Ramos", matricula: "2024-0141"},
+    {nombre: "Wilkin Yonaire Olaverria Romero", matricula: "2024-0093"},
+    {nombre: "Ronald Francisco Dominguez Ramirez", matricula: "2024-0094"},
+    {nombre: "Oscar Adrian Capellan Almonte", matricula: "2024-0124"},
+    {nombre: "Jean Herold Mercius", matricula: "2024-0148"}
+]
 // Resultado
 function mostrarResultado() {
     clearInterval(temporizador); // Detener el temporizador de 60 segundos
@@ -396,17 +405,34 @@ function mostrarResultado() {
     if (puntajeTotal >= 80) message = "Excelente!";
     else if (puntajeTotal >= 60) message = "Buen trabajo!";
     else message = "Sigue explorando las implicaciones eticas en software.";
+    
+    const listaNombre_creadores = creadores_juego.map(creador => `
+        <li>
+            <div class="nombre">${creador.nombre}</div>
+            <div class="matricula">${creador.matricula}</div>
+        </li>
+        `).join(''); 
+
+    // Actualizar contenido al mostrar la pantalla de resultado
     document.body.innerHTML = `
                 <h1>Tu puntaje total es: ${puntajeTotal}%</h1>
                 <p>${message}</p>
                 <p>Volverás al inicio en <span id="contadorResultado">15</span> segundos.</p>
                 <button onclick="reiniciarJuego();">Volver al inicio</button>
+                <div id="creadores" class="creadores_class">
+                    <h2>Desarrollado por:</h2>
+                    <ul>
+                        ${listaNombre_creadores}
+                    </ul>
+                </div>
             `;
     let tiempoRestanteResultado = 15;
     const contadorResultado = setInterval(() => {
         tiempoRestanteResultado--;
-        document.getElementById("contadorResultado").textContent =
-            tiempoRestanteResultado;
+        const contadorElement = document.getElementById("contadorResultado");
+        if (contadorElement) {
+            contadorElement.textContent = tiempoRestanteResultado;
+        }
         if (tiempoRestanteResultado <= 0) {
             clearInterval(contadorResultado);
             reiniciarJuego();
