@@ -322,7 +322,7 @@ function cargarPreguntas() {
         divPregunta.classList.add("pregunta");
 
         divPregunta.innerHTML = `
-                    <p>${pregunta.pregunta}</p>
+                    <p class="pregunta-texto">${pregunta.pregunta}</p>
                     <div class="opciones">
                         ${opcionesBarajadas // Barajar las opciones
                             .map(
@@ -354,6 +354,10 @@ function reiniciarJuego() {
 // Mostrar que perdio
 function mostrarPerdida() {
     document.body.innerHTML = `
+            <video autoplay loop muted id="video-fondo">
+                <source src="background.mp4" type="video/mp4">
+                Tu navegador no soporta elementos de video.
+            </video>
                 <h1>Has perdido, eres un perdedor.</h1>
                 <p>Volverás al inicio en <span id="contadorPerdido">15</span> segundos.</p>
             `;
@@ -415,9 +419,9 @@ function mostrarResultado() {
 
     // Actualizar contenido al mostrar la pantalla de resultado
     document.body.innerHTML = `
-                <h1>Tu puntaje total es: ${puntajeTotal}%</h1>
-                <p>${message}</p>
-                <p>Volverás al inicio en <span id="contadorResultado">15</span> segundos.</p>
+                <h1 class="resultado">Tu puntaje total es: ${puntajeTotal}%</h1>
+                <p class="resultado">${message}</p>
+                <p class="resultado">Volverás al inicio en <span id="contadorResultado">15</span> segundos.</p>
                 <button onclick="reiniciarJuego();">Volver al inicio</button>
                 <div id="creadores" class="creadores_class">
                     <h2>Desarrollado por:</h2>
@@ -448,8 +452,6 @@ function agregarEventosOpciones() {
             puntajeTotal += porcentaje;
             guardarProgreso();
             updateButtons();
-            // console.log("Current index: ", indice);
-            // console.log("Current score: ", puntajeTotal);
             if (indice < 4) {
                 indice++;
                 mostrarPregunta();
