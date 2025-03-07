@@ -2,12 +2,22 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: #ecf0f1;
+    color: white;
     margin-top: 50px;
-}
+}   
 
 h1 {
-    color: #2c3e50;
     font-size: 36px;
+}
+
+#video-fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
 }
 
 .pregunta {
@@ -22,8 +32,16 @@ h1 {
     display: none;
 }
 
+.pregunta-texto {
+    color: black;
+}
+
 .pregunta.activa {
     display: block;
+}
+
+.resultado {
+    color: #2c3e50;
 }
 
 .opciones {
@@ -54,9 +72,9 @@ h1 {
 }
 
 .navegacion button {
-    padding: 10px 20px;
+    padding: 10px 30px;
     font-size: 16px;
-    background-color: #2ecc71;
+    background-color: #01ff52;
     color: white;
     border: none;
     border-radius: 5px;
@@ -69,7 +87,7 @@ h1 {
 }
 
 .navegacion button:hover:not(:disabled) {
-    background-color: #27ae60;
+    background-color: #62b183;
 }
 
 #temporizador {
