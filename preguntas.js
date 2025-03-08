@@ -399,8 +399,7 @@ const creadores_juego = [
     {nombre: "Ronald Omar Rosario Ramos", matricula: "2024-0141"},
     {nombre: "Wilkin Yonaire Olaverria Romero", matricula: "2024-0093"},
     {nombre: "Ronald Francisco Dominguez Ramirez", matricula: "2024-0094"},
-    {nombre: "Oscar Adrian Capellan Almonte", matricula: "2024-0124"},
-    {nombre: "Jean Herold Mercius", matricula: "2024-0148"}
+    {nombre: "Oscar Adrian Capellan Almonte", matricula: "2024-0124"}
 ]
 // Resultado
 function mostrarResultado() {
